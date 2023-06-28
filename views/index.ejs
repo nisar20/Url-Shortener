@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .table-container {
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 300px; /* Set the desired max height for vertical scrolling */
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .center-button {
+        display: flex;
+        justify-content: center;
+      }
+
+      .view-database-button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 18px;
+        background-color: #715ee9;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>URL Shortener</h1>
+
+      <form action="/shorten" method="POST" class="search-form">
+        <div class="form-group">
+          <label for="originalURL">Enter URL:</label>
+          <input type="text" class="form-control" id="originalURL" name="originalURL" required />
+        </div>
+        <div class="form-group">
+          <label for="notes">Add notes:</label>
+          <input type="text" class="form-control" id="notes" name="notes" />
+        </div>
+        <button type="submit" class="btn btn-primary">Shorten URL</button>
+      </form>
+
+      <h2>Search</h2>
+      <form action="/results" method="GET">
+        <div class="form-group">
+          <label for="searchTerm">Search by URL or Notes:</label>
+          <input type="text" class="form-control" id="searchTerm" name="searchTerm" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="center-button">
+        <a href="/database" target="_blank" class="view-database-button">View Database</a>
+      </div>
+    </div>
+  </body>
+</html>
